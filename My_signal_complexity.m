@@ -1,0 +1,9 @@
+function[sm]=My_signal_complexity(x)
+N=length(x);x=x(:)';
+s0=sqrt(sum(x.^2)/N);
+d=x(1,2:end)-x(1,1:end-1);
+s1=sqrt(sum(d.^2)/(N-1));
+g=d(1,2:end)-d(1,1:end-1);
+s2=sqrt(sum(g.^2)/(N-2));
+sm=s1/s0;
+%sc=sqrt((((s2^2/s1^2)-(s1^2/s0^2)))^2);
